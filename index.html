@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Best — Handmade Gifts & Giveaways</title>
+  <meta name="description" content="Handmade gifts, favors and giveaways for weddings, newborns, birthdays, Ramadan, Eid and graduation.">
+  <meta name="theme-color" content="#3b2418">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=El+Messiri:wght@500;700&family=Tajawal:wght@400;500;700&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233b2418'/%3E%3Ctext x='32' y='42' font-size='30' text-anchor='middle' fill='%23f3e6d6' font-family='Georgia'%3ETB%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <!-- moving decorative layers -->
+  <canvas id="thread-canvas" aria-hidden="true"></canvas>
+  <div id="scraps" aria-hidden="true"></div>
+  <svg id="seam" aria-hidden="true" preserveAspectRatio="none"></svg>
+
+  <div class="announce"><div class="announce-track" id="announce"></div></div>
+
+  <header class="header" id="header">
+    <div class="header-row">
+      <button class="icon-btn only-mobile" id="menu-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+      </button>
+      <a href="#/" class="logo" aria-label="The Best home">
+        <span class="logo-mark">The Best</span>
+        <span class="logo-sub" data-i18n="tagline">handmade with warmth</span>
+      </a>
+      <form class="search" id="search-form" role="search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input id="search-input" type="search" data-i18n-ph="search_ph" placeholder="Search favors, boxes, candles…" aria-label="Search products">
+      </form>
+      <div class="header-actions">
+        <button class="lang-btn" id="lang-btn" aria-label="Change language">عربي</button>
+        <div class="region" id="region">
+          <button class="region-btn" id="region-btn" aria-haspopup="listbox"><span id="region-flag">🇵🇸</span><span id="region-cur">ILS</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+          <ul class="region-menu" id="region-menu" role="listbox"></ul>
+        </div>
+        <a href="#/wishlist" class="icon-btn" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span class="count" id="wish-count"></span></a>
+        <a href="#/cart" class="icon-btn" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M5 7h14l-1.5 11h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="count" id="cart-count"></span></a>
+      </div>
+    </div>
+    <nav class="catnav" id="catnav" aria-label="Categories"></nav>
+  </header>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-panel">
+      <button class="icon-btn drawer-close" id="drawer-close" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <p class="drawer-title" data-i18n="menu_title">Shop by occasion</p>
+      <div id="drawer-links"></div>
+    </div>
+  </aside>
+
+  <main id="view" tabindex="-1"></main>
+
+  <footer class="footer">
+    <svg class="footer-stitch" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 C 200 0, 400 40, 600 20 S 1000 0, 1200 20"/></svg>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">The Best</p>
+        <p class="footer-text" data-i18n="footer_text">Handmade gifts and giveaways, stitched, wrapped and made with warmth for every occasion.</p>
+      </div>
+      <div>
+        <p class="footer-h" data-i18n="f_shop">Shop</p>
+        <div id="footer-cats" class="footer-links"></div>
+      </div>
+      <div>
+        <p class="footer-h" data-i18n="f_order">Order</p>
+        <div class="footer-links">
+          <a href="#/cart" data-i18n="your_cart">Your cart</a>
+          <a href="#/wishlist" data-i18n="wishlist">Wishlist</a>
+          <a id="footer-wa" href="#" target="_blank" rel="noopener" data-i18n="order_wa">Order on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><span data-i18n="managed_by">Managed by</span> <strong id="managed-by">Tasneem Ghamri</strong></p>
+      <p dir="ltr">© <span id="year"></span> <span id="rights-holder">Serve Up Research &amp; Digital Solutions</span>. <span data-i18n="rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <nav class="bottom-nav only-mobile" aria-label="Quick links">
+    <a href="#/"><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v9H4z"/></svg><span data-i18n="home">Home</span></a>
+    <a href="#/categories"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg><span data-i18n="shop">Shop</span></a>
+    <a href="#/wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span data-i18n="saved">Saved</span></a>
+    <a href="#/cart"><svg viewBox="0 0 24 24"><path d="M5 7h14l-1.5 11h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span data-i18n="cart">Cart</span><span class="count" id="cart-count-m"></span></a>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/currency.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/fx.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
